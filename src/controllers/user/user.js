@@ -28,7 +28,7 @@ export const sendRequest = async (req, res) => {
         let sendReq = await User.findByIdAndUpdate({ _id: userID }, { $push: { sendReq: { _id: reqID } } })
         let pendingReq = await User.findByIdAndUpdate({ _id: reqID }, { $push: { pendingRequest: { _id: userID } } })
 
-        res.status(200).redirect(`'${userID}`)
+        res.status(200).redirect(`/user/'${userID}`)
 
     } catch (error) {
         console.log(error);
